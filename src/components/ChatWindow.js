@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Message from './Message';
 import LoadingIndicator from './LoadingIndicator';
+import axios from 'axios';
 
 export default function ChatWindow() {
     const [messages, setMessages] = useState([]);

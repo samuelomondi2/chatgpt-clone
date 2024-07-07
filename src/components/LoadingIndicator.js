@@ -1,8 +1,9 @@
 
 import React from 'react'
+import '../css/LoadingIndicator.css';
 
 export default function LoadingIndicator() {
   return (
-    <div>LoadingIndicator</div>
+    <div className='loader'></div>
   )
 }
