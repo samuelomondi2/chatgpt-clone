@@ -11,8 +11,27 @@ export default function ChatWindow() {
         const userMessage = {sender: 'user', text: input};
         setMessages([...messages, userMessage]);
         setLoading(true);
+
+        // headers for API call
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + process.env.REACT_APP_CHATGPT_API_KEY
+        }
+
+        //Data for API call
+        const data = {
+            model: 'gpt-3.5-turbo',
+            messages: [{role: 'user', content: input}]
+        }
+
         try {
-            
+            // send user message to API
+            const response = axios.post(
+                'https://api.openai.com/v1/chat/completions',
+                data,
+                {headers}
+            )
+
         } catch (error) {
             console.log(error);
         }
